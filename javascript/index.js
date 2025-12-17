@@ -24,14 +24,21 @@ function gerarPDF() {
 }
 
   function desenharSWlogo() {
-    const logoWidth = 32;
-    const logoHeight = 25;
+  const pageWidth = doc.internal.pageSize.getWidth();
+  const pageHeight = doc.internal.pageSize.getHeight();
 
-    const x = (pageWidth - logoWidth) / 2;
-    const y = pageHeight - logoHeight - 10;
+  const logoWidth = 40;
+  const logoHeight = 30;
 
-    doc.addImage(SWlogo, "PNG", x, y, logoWidth, logoHeight);
-  }
+  const x = (pageWidth - logoWidth) / 2;
+  const y = pageHeight - logoHeight - 8;
+
+  const gState = new doc.GState({ opacity: 0.2 });
+
+  doc.setGState(gState);
+  doc.addImage(SWlogo, "PNG", x, y, logoWidth, logoHeight);
+  doc.setGState(new doc.GState({ opacity: 1 }));
+}
 
   function desenharBackgorund() {
   doc.addImage(
@@ -52,170 +59,505 @@ function gerarPDF() {
   const textos = {
 
     nivel1: 
-`CAPACITAÇÃO NÍVEL 1 – SOLIDWORKS
+`Capacitação em SOLIDWORKS Nível I EAD
 
-Introdução
-• Tipos de arquivos
-• Intenção de projeto
-• Interface do SolidWorks
+Objetivo: Capacitar o participante a utilizar o SOLIDWORKS para construção de modelos paramétricos de peças e montagens e elaboração de detalhamentos 2D com enfoque nas habilidades e conceitos fundamentais do software.
 
-Esboço 2D
-• Criação de esboços 2D
-• Regras que governam os esboços
-• Aplicação de dimensões
+Pré-requisitos: Conexão estável com a internet, familiaridade com o sistema operacional Windows e conhecimentos básicos em desenho técnico. (Opcional: uso de um segundo monitor).
 
-Modelagem Básica
-• Extrusão
-• Corte
-• Filetes e arredondamentos
-• Planos
-• Recursos de revolução
-• Padrões de repetição linear e circular
+Carga horária: 40 horas
 
-Visualização e Detalhamento
-• Vistas padrão
-• Opções de visualização
-• Detalhamento de desenhos técnicos:
-  – Vistas de desenho
-  – Vistas de detalhe
-  – Vistas projetadas
-  – Vistas de seção
-  – Marcas e linhas de centro
-  – Dimensões
-  – Templates e formatos de folha
-  – Vistas de desenho de montagem
-  – Lista de materiais e tabelas
-  – Balões
+Material Incluso:
+Disponibilizada apostila eletrônica exclusiva da SKA.
+Certificado eletrônico.
 
-Montagens
-• Projetos ascendentes de montagem
-• Inserção de peças na montagem
-• Posicionamentos:
-  – Coincidente
-  – Tangente
-  – Paralelo
-  – Simetria
-  – Largura
-• Utilização de montagens
+Conteúdo Programático:
+COMPREENDENDO O 3D
+•	Compreensão de esboço
+•	Analogia para obtenção de sólido 3D
+•	Discussão de métodos de modelamento
+•	Janela de boas-vindas
+•	Árvore de projetos
+•	Barra de recursos
+•	Área de gráficos
 
-Manutenção do Projeto
-• Reparos
-• Alterações no projeto
+CRIAÇÃO DE ESBOÇOS
+•	Sistema de unidades
+•	Planos padrões e origem
+•	Criação das entidades de esboço
+•	Aplicação das relações de esboço
+•	Auxílio das linhas de inferência
+•	Inserção de dimensões
+•	Aplicação do recurso “Extrusão”
+•	Exercícios
 
-Observação
-Para adequar o horário da capacitação às suas necessidades, a SKA oferece diferentes opções de turnos para sua realização.
-Em função de valores diferenciados, consulte a Cláusula Investimento – Serviços.
+MODELAGEM BÁSICAS DE PEÇAS
+•	Escolher o melhor perfil para iniciar o modelamento
+•	Escolher o plano correto para começar o modelamento
+•	Considerando intenção de projeto
+•	Aparagem de entidades
+•	Criar esboço a partir de faces
+•	Aplicação do recurso “Corte extrudado”
+•	Utilização do recurso “Assistente de furação”
+•	Alterar orientação do modelo
+•	Aplicação do recurso “Filete”
+•	Modificar aparência dos modelos
+•	Exercícios
+
+MODELOS DE BASE SIMÉTRICA
+•	Utilização do “Espelho dinâmico”
+•	Pesquisa de comandos
+•	Aplicação de “Inclinação” no recurso “Extrusão”
+•	Aplicação da condição final “Plano médio”
+•	Aplicação da condição final “Até o próximo”
+•	Utilização da segunda direção da “Extrusão”
+•	Utilização do “Filete de esboço”
+•	Atalhos para orientação de modelo
+•	Utilização do “Offset de entidades”
+•	Aplicação da condição final “Offset da superfície” para “Corte extrudado”
+•	Estilo de exibição do modelo
+•	Utilização da “Vista de seção”
+•	Aplicação da ferramenta “Medida”
+•	Analogia para aplicação de diferentes filetes
+•	Renomear recursos
+•	Criação de texto
+•	Exercícios
+ 
+RECURSO DE REPETIÇÃO
+•	Utilização do “Padrão linear”
+•	Seleção de recursos para padrão
+•	Utilização de segunda direção
+•	Aplicar somente recurso original do padrão
+•	Ignorar instâncias do padrão
+•	Seleção de faces para padrão
+•	Compreensão do “Padrão de geometria”
+•	Utilização do “Padrão circular”
+•	Seleção de corpos para padrão
+•	Aplicação do recurso “Combinar
+•	Aplicação do recurso “Espelhar”
+•	Utilização de “Padrões de esboço”
+•	Inserção de contagem de instâncias
+•	Inserção de dimensão de espaçamento
+•	Aplicação da “Tampa de extremidade” de “Offset de entidades”
+•	Utilização da opção “Contornos de esboço sombreado”
+•	Exercícios
+
+REVOLUÇÃO E VARREDURA
+•	Utilização do recurso “Revolução”
+•	Transformar entidades para geometria de construção
+•	Técnica para dimensionamento de diâmetro
+•	Aplicação do “Recurso fino”
+•	Utilização do recurso “Varredura”
+•	Aplicação da relação de esboço “Perfurar”
+•	Utilização tipo de filete “Redondo”
+•	Aplicar material ao modelo
+•	Entendendo propriedades de massa
+•	Exercícios
+
+INCLINAÇÃO, CASCA E NERVURA
+•	Análise de inclinação
+•	Utilização da barra de reversão
+•	Utilização do recurso “Inclinação”
+•	Aplicação e exemplos do recurso “Casca”
+•	Inserção de planos adicionais
+•	Utilização do recurso “Nervura”
+•	Aplicação da ferramenta “Converter entidades”
+•	Exercícios
+ 
+CORREÇÃO DE ERROS
+•	Simbologia de erros
+•	Utilização do comando “o que está errado?”
+•	Utilização do comando “caixa de seleção”
+•	Utilização do comando “definir totalmente o esboço”
+•	Modificar plano de esboço
+•	Utilização da ferramenta “SketchXpert”
+•	Utilização da ferramenta “FilletXpert”
+•	Utilização da ferramenta “DraftXpert”
+•	Exercícios
+
+MODIFICAÇÃO DE MODELO
+•	Identificar “Recursos Pai” e “Recursos Filho”
+•	“Mover” recursos na árvore de projeto
+•	Uso do “Instant3D” e “Instant2D”
+•	Diferença entre o uso da seleção de “contorno” e “região”
+•	Exercícios
+
+CONFIGURAÇÃO DE PEÇA
+•	“Renomear” as dimensões de peça
+•	“Equacionar” as dimensões de peça
+•	Utilização do comando “Vincular valores”
+•	Adicionar configuração de peça
+•	“Configurar” recursos e dimensões
+•	Utilização de “Tabela de projetos”
+•	Exercícios
+
+DETALHAMENTO 2D
+•	Inserir templates no SOLIDWORKS
+•	Alteração da escala
+•	Utilização de linha de centro e marca de centro
+•	Vincular propriedades
+•	Exercícios
+
+CRIAÇÃO DE MONTAGENS
+•	Inserir componentes
+•	Graus de liberdade
+•	Utilização de “posicionamentos”
+•	Utilização do Preparar e enviar
+•	Exercícios
+ 
+UTILIZAÇÃO DE MONTAGENS
+
+•	Propriedades de massa
+•	Verificação de interferência
+•	Utilização do recurso “mover componente”
+•	Aplicação do recurso “Vista Explodida”
+•	Criação de vistas
+•	Importação do arquivo de montagem para ambiente 2D
+•	Alteração de escala na vista
+•	Utilização do comando “Exibir no estado explodido”
+•	Criação e edição de “lista de materiais”
+•	Utilização do recurso “Balão automático”
+•	Exercícios
+
+SIMULATION XPRESS
+•	Entender aplicação do SOLIDWORKS Simulation
+•	Aplicação do Simulation Xpress
+•	Introdução a análise tensão
+•	Estudo de um produto
+•	Plotagem da tensão equivalente
+•	Plotagem de deslocamento
+•	Entender fator de segurança
+•	Gerar um relatório"
 `,
 
     nivel2:
-`CAPACITAÇÃO NÍVEL 2 – SOLIDWORKS
+`Capacitação em SOLIDWORKS Nível II EAD
 
-Objetivo
-Capacitar o participante a utilizar o SolidWorks para modelagem de peças, montagens e chapas, com enfoque em geometrias complexas.
+Objetivo: Capacitar o participante a utilizar o SOLIDWORKS para construção de modelos paramétricos de peças e montagens e com enfoque nas habilidades e conceitos avançados do software.
 
-Pré-requisitos
-Capacitação no curso SolidWorks Nível I ou conhecimento de trabalho com o sistema CAD SolidWorks.
+Pré-requisitos: Conexão estável com a internet, familiaridade com o sistema operacional Windows e conhecimentos básicos em desenho técnico e SOLIDWORKS Nível I. (Opcional: uso de um segundo monitor).
 
-Carga horária
-40 horas.
+Carga horária: 40 horas
 
-Configurações e Recursos Avançados
-• Configurações de peças
-• Configurações de conjuntos
-• Configurações em detalhamentos
-• Inserção de peças em peças
+Material Incluso:
+Disponibilizada apostila eletrônica exclusiva da SKA.
+Certificado eletrônico.
 
-Recursos de Modelagem Avançada
-• Sweep
-• Loft
-• Shell
-• Rib
-• COSMOSXpress
+Conteúdo Programático:
+MÚLTIPLOS CORPOS
+•	Conceito de peças com múltiplos corpos
+•	Inserir corpos em peças
+•	Combinar corpos sólidos
+•	Utilizando o recurso “Fazer interseção”
+•	Aplicar o recurso “Recuar”
+•	Salvar peças de múltiplos corpos
+•	Inserir em nova peça
+•	Utilizar o recurso “Dividir”
 
-Superfícies
-• Superfície extrudada
-• Superfície plana
-• Aparar superfície
-• Costurar superfície
-• Trabalhar com imagens
-• Superfície por revolução
-• Superfície varrida
-• Modelagem híbrida
+SPLINES E ESBOÇOS 3D
+•	Aplicação da ferramenta “Spline”
+•	Definição e manipulação de splines
+•	Ferramentas de avaliação de splines
+•	Utilização de “Esboço 3D”
+•	Criação e utilização de hélices e espirais
+•	Aplicação de outras ferramentas de curvas
 
-Grandes Montagens
-• Componentes de peso leve
-• Modo de grande montagem
-• Abertura seletiva
-• Uso de configurações em grandes montagens
-• Dicas para montagens mais rápidas
-• Considerações sobre desenhos
+VARREDURA
+•	Entender e utilizar o recurso “Varredura”
+•	Aplicação de curvas-guia em varreduras
+•	Utilização do “SelectionManager”
+•	Manipulação de opções de torção e alinhamento
+•	Outros modos de controle
+•	Utilização de corte varrido por perfil sólido
 
-Posicionamentos Mecânicos
-• Came
-• Dobradiça
-• Engrenagem
-• Pinhão e cremalheira
-• Parafuso
-• Junta universal
+ROSCAS E RECURSOS DE BIBLIOTECA
+•	Criar roscas pelo recurso “Rosca”
+•	Desenvolver perfil de rosca personalizado
+•	Modelar roscas manuais
+•	Verificar condições de desempenho
+•	Utilização de recursos de biblioteca
+•	Inserir “Decalque” em faces
+•	Aplicação com parâmetro de linha de centro
+•	Utilização de técnicas de cópias de esboço
+•	Aplicação de loft fechado
 
-Sheet Metal
-• Métodos de chapa metálica
-• Calibres de chapa metálica
-• Flanges
-• Recursos de chapa metálica
-• Flange contínuo
-• Flange de aresta
+LOFTS
+•	Entender e aplicar o recurso “Loft”
+•	Utilização de curvas-guia para loft
+•	Manipulação de restrições iniciais e finais
+•	Verificação de continuidade e curvatura
+•	Utilização de “Linha de divisão” para um perfil
+•	Aplicação com parâmetro de linha de centro
+•	Utilização de técnicas de cópias de esboço
+•	Aplicação de loft fechado
 
-Observação
-Para adequar o horário da capacitação às suas necessidades, a SKA oferece diferentes opções de turnos para sua realização.
-Em função de valores diferenciados, consulte a Cláusula Investimento – Serviços.
+LIMITES
+•	Identificar divergências de recursos avançados
+•	Utilização do recurso “Limite”
+•	Aplicação de restrições iniciais e finais
+•	Comparação de resultados de “Limite” e “Loft”
+•	Trabalhar com bloco de esboço
+•	Utilização de direção 2 como curva-guia
+•	Aplicação de cenas
+ 
+OUTROS RECURSOS
+•	Entender e aplicar opções do recurso “Filete”
+•	Criar uma curva de interseção
+•	Aplicação do recurso “Envolver”
+•	Utilização do recurso “Flexionar”
+•	Aplicação dos modos do recurso “Deformar”
+•	Manipular os recursos “Mover face” e “Excluir face”
+•	Utilização de cascas com múltiplas espessuras
+•	Variar instâncias num padrão linear e circular
+
+MODELAMENTO EM CONTEXTO
+•	Entender o conceito de modelamento top-down
+•	Criação de peças diretamente pela montagem
+•	Utilização de referências externas
+•	Salvar um componente virtual em componente externo
+•	Remoção de referências externas
+•	Exemplificação de referências externas em vários contextos
+•	Inserção de recursos em contexto em componentes convencionais
+
+RECURSOS DE MONTAGEM
+•	Criar “Série de furos” com furos existentes
+•	Inserir “Componentes de fixação inteligentes” automaticamente
+•	Inserir “Componentes de fixação inteligentes” pelo recurso “Série de furos”
+•	Criar “Série de furos” a partir de um novo arquivo
+•	Propagar às peças recursos criados na montagem
+
+POSICIONAMENTOS DE MONTAGEM
+•	Aplicar posicionamentos rápidos
+•	Entender os posicionamentos rápidos
+•	Trabalhar com referências de posicionamentos
+•	Criar posicionamentos avançados e mecânicos
+•	Utilizar o comando de “Cópia com posicionamento”
+
+CONFIGURAÇÕES EM MONTAGEM
+•	Entender aplicação de configurações em montagens
+•	Trabalhar com “Tabela de projeto” via Excel
+•	Aplicar a “Tabela de configurações”
+ 
+ESTADO DE EXIBIÇÃO
+•	Criar estados de exibição vinculados e individuais
+•	Aplicar de aparências
+•	Controlar propriedades do “Painel de exibição”
+•	Utilizar estados de exibição em montagens e desenhos 2D
+
+EDIÇÃO DE MONTAGENS
+•	“Substituir componentes” dentro da montagem
+•	Resolver problemas de posicionamentos
+•	Modificar e salvar componentes
+•	Utilizar o comando “Recarregar componentes”
+•	Utilizar “Alinhamento de furos”
+•	Entender as equações em montagens
+
+GRANDES MONTAGENS
+•	Entender o que são grandes montagens
+•	Estruturar corretamente grandes montagens
+•	Trabalhar com tipos de estados de abertura de montagem
+•	Editar a qualidade de imagem para ganho de desempenho
+•	Simplificar montagem
+•	Aplicar SpeedPak
+•	Projetar com base em layout
+
+MOTION MANAGER
+•	Entender a interface do MotionManager
+•	Trabalhar com a ferramenta de composição do tempo na animação
+•	Modificar propriedades ao longo do tempo
+•	Salvar animação
+•	Funções adicionais"
 `,
 
     nivel3:
-`CAPACITAÇÃO NÍVEL 3 – SOLIDWORKS
+`Capacitação em SOLIDWORKS Nível III EAD
 
-Objetivo
-Capacitar o participante a utilizar as principais ferramentas do software SolidWorks para trabalhos com superfícies e criação de moldes, utilizando técnicas automáticas e manuais.
+Objetivo: Capacitar o participante a utilizar as principais ferramentas do software SOLIDWORKS para trabalhos utilizando superfícies e criação de moldes com técnicas automáticas e manuais.
 
-Pré-requisitos
-Conhecimento dos recursos de modelagem avançada do SolidWorks, como Lofts e Sweeps.
+Pré-requisitos: Conexão estável com a internet, familiaridade com o sistema operacional Windows e conhecimentos básicos em desenho técnico e SOLIDWORKS Nível II. (Opcional: uso de um segundo monitor).
 
-Carga horária
-28 horas.
+Carga horária: 28 horas.
 
-Fundamentos de Superfícies
-• Sólidos e superfícies
-• Introdução à superfície extrudada
-• Introdução à superfície plana
-• Aparar superfície
-• Introdução à costura de superfícies
-• Fluxo de trabalho com superfícies
-• Trabalhar com imagens
-• Similaridades entre modelagem de sólidos e superfícies
-• Introdução à superfície por revolução
-• Introdução à superfície varrida
-• Modelagem híbrida
+Material incluso: 
+Disponibilizada apostila eletrônica exclusiva da SKA.
+Certificado eletrônico.
 
-Preparação para Moldes
-• Importação de arquivos
-• Análise dos ângulos de extração
-• Fator de escala
-• Linhas de partição
-• Superfícies de partição
+Conteúdo Programático:
+CONCEITO DE SUPERFÍCIES
+•	Geometria X Topografia
+•	Sólido X Superfície
+•	Tipos de Superfície
+•	Costura de Superfícies
 
-Criação de Moldes
-• Criação de moldes
-• Conserto de modelos e superfícies
-• Múltiplas direções de partição
-• Métodos alternativos para desenho de moldes
+MODELOS DE SUPERFÍCIE
+•	Ferramentas Básicas de Superfície
+•	Geometria de Referência
+•	Aparagens
+•	Filetes
+•	Copiando Corpos
+•	Projeções
+•	Conectores
+ 
+MODELAGEM HÍBRIDA
+•	Superfícies Importadas
+•	Recursos de Extrusão com e até Superfície
+•	Cortar com Superfície
+•	Substituir Faces
+•	Superfície para Referência
 
-Observação
-Para adequar o horário da capacitação às suas necessidades, a SKA oferece diferentes opções de turnos para sua realização.
-Em função de valores diferenciados, consulte a Cláusula Investimento – Serviços.
+CORREÇÃO DE MODELOS
+•	Modelos Importados
+•	Superfície Preenchida e Estendida
+•	Excluir Faces e Furos
+•	Ferramentas de Verificação
+
+MODELAGEM AVANÇADA COM SUPERFÍCIES
+•	Utilização de Imagens de Referência
+•	Aplicação de Superfícies de Referência
+•	Ferramentas Avançadas de Superfície
+
+REMENDOS COMPLEXOS E FORMA LIVRE
+•	Transições e Concatenações
+•	Remendos em: T, K e Y
+•	Superfície Limite
+•	Manipulação da Forma Livre
+
+TÉCNICA DE MODELO MESTRE
+•	Modelo Mestre de Superfície
+•	Modelo Mestre Sólido
+
+RECURSO DE FIXAÇÃO
+•	Respiradouro
+•	Ressalto Suporte
+•	Saliência/Ranhura
+•	Gancho e Ranhura de Encaixe
+
+MACHO E CAVIDADE
+•	Ferramentas de Moldagem
+•	Preparação do Modelo
+•	Análise de Inclinação e Ângulo de Saída
+•	Escala • Linha de Partição
+•	Pasta de Moldes
+•	Superfície de Fechamento e Partição
+
+PINÇAS, GAVETAS E POSTIÇOS
+•	Análises Avançadas de Modelos
+•	Criação de Pinças, Gavetas e Postiços através da ferramenta Núcleo
+
+PARTIÇÃO AVANÇADA
+•	Partição Complexa
+•	Superfície de Interloque
+•	Divisão de Faces
+•	Linhas de Divisão  
+
+MODELAGEM NO AMBIENTE DE MONTAGEM
+•	Ambiente de Montagem
+•	Linha de Fechamento
+•	Organização das Cavidades
+•	Criação de Insertos
+•	Recurso Cavidade e Recurso de Modelação em Contexto
+
+BIBLIOTECA DE PROJETOS
+•	Dados Reutilizáveis
+•	Recursos Inteligentes
+•	Componentes Inteligentes
+•	3D ContentCentral
+
+SOLIDWORKS PLASTICS
+•	Apresentação da Simulação de Injeção de Polímeros
+•	Condições de Contorno
+•	Malha
+•	Resultados
 `,
 
   Draftsight:
-  'Teste'
+  `Capacitação em DraftSight EAD
+
+Objetivo: Capacitar o participante a utilizar o DRAFTSIGHT para construção de modelos 2D com enfoque nas habilidades e conceitos fundamentais do software.
+
+Pré-requisitos: Estar familiarizado com sistema operacional Windows e ter conhecimentos básicos em desenho técnico.
+
+Carga horária: 32 horas
+
+Material incluso: 
+Acesso ao Portal do Cliente da SKA pelo período de 03 meses após a conclusão do curso.
+Material de consulta pós-curso.
+Certificado eletrônico.
+
+Conteúdo Programático:
+COMPRRENDENDO A INTERFACE
+•	Diferença entre uma ferramenta CAD 2D e um CAD paramétrico
+•	A Interface
+•	Personalização da Interface
+•	Terminologia Inglês x Português
+ 
+CRIANDO AS PRIMEIRAS GEOMETRIAS
+•	Comandos de navegação básicos do DraftSight
+•	PAN
+•	ZOOM (in/out)
+•	2Object Snaps
+•	Ferramentas de seleção
+•	Alterando o Sistema de Unidades 
+•	Compreendendo Coordenadas Absolutas e Relativas 
+•	Construir linhas
+•	Entrada de teclado
+•	Construir retângulos 
+•	Construir Arcos
+•	Construir círculos
+•	Construir polígonos regulares
+•	Mover entidades
+•	Copiar entidades 
+•	Girar entidades 
+•	Criando Offset de Entidades 
+•	Espelhar entidades
+
+MANIPULANDO OBJETO
+•	Aparar Entidades
+•	Power Trim
+•	Estender Entidades 
+•	Dividir Entidade
+•	Cotas
+•	Aplicar
+•	Aplicar chanfros
+•	Construir Splines
+
+RECURSOS TÉCNICOS
+•	Hachura
+•	Alinhar Entidades
+•	Aplicar Escala
+•	Padrão
+
+CONFIGURAÇÃO DE LAYERS
+•	Gerenciar Layers
+•	Configurar propriedades de layer
+•	Controlar o comportamento da Layer
+•	Trabalhar com EstilosTexto
+•	Trabalhar com EstilosDimensão
+•	Configuração de Cota
+
+CONFIGURAÇÃO DE IMPRESSÃO
+•	Criação do Bloco
+•	Para salvar um bloco como um arquivo de desenho
+•	Inserção do bloco
+•	AtributoBloco
+
+DECARLQUES E CONFIGURAÇÕES
+•	Página de Impressão
+•	Viewport
+•	Processar a saída de impressão em um lote
+
+RECURSOS ADICIONAIS
+•	Otimização de Interface (Dicas de uso)
+•	Rasterização de PDF
+•	Comando de Seleção Inteligente
+•	Comando Limpar
+•	Comando Para Descartar Duplicadas
+•	Comando Verificar
+•	Comando Recover
+•	Anexar Imagem
+•	Layer Settings
+
+Para adequar o horário da capacitação às suas necessidades, a SKA oferece diferentes opções de turnos para sua realização. Em função de valores diferenciados, veja a Cláusula Investimento - Serviços."`
   };
 
   // =====================================================
@@ -228,7 +570,7 @@ Em função de valores diferenciados, consulte a Cláusula Investimento – Serv
 
   selecionados.forEach((checkbox, index) => {
     if (index > 0) doc.addPage();
-    desenharBackgorund()
+    desenharBackgorund();
     desenharHeaderImagem();
 
     doc.setFontSize(11);
@@ -248,6 +590,7 @@ Em função de valores diferenciados, consulte a Cláusula Investimento – Serv
         }
 
         doc.addPage();
+        desenharBackgorund();
         desenharHeaderImagem();
         y = inicioTextoY;
       }
