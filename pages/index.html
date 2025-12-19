@@ -5,19 +5,78 @@
   <title>Gerador de PDF</title>
   <link rel="stylesheet" href="/css/index.css">
 </head>
+
 <body>
 
-<h2>Selecione as capacitações</h2>
+  <main class="container">
 
-<label><input type="checkbox" value="nivel1"> Capacitação Nível 1</label><br>
-<label><input type="checkbox" value="nivel2"> Capacitação Nível 2</label><br>
-<label><input type="checkbox" value="nivel3"> Capacitação Nível 3</label><br>
-<label><input type="checkbox" value="Draftsight"> Capacitação Draftsight</label><br><br>
+    <h2>Selecione as capacitações</h2>
 
-<button onclick="gerarPDF()">Gerar PDF</button>
+    <section class="grupo">
+      <h3>SOLIDWORKS – Níveis</h3>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-<script src="/javascript/index.js"></script>
+      <label>
+        <input type="checkbox" value="nivel1">
+        Capacitação Nível 1
+      </label>
+
+      <label>
+        <input type="checkbox" value="nivel2">
+        Capacitação Nível 2
+      </label>
+
+      <label>
+        <input type="checkbox" value="nivel3">
+        Capacitação Nível 3
+      </label>
+    </section>
+
+    <section class="grupo">
+      <h3>SOLIDWORKS – Especializações</h3>
+
+      <label>
+        <input type="checkbox" value="Soldagem">
+        SOLIDWORKS – Soldagens (EAD)
+      </label>
+
+      <label>
+        <input type="checkbox" value="Chapas">
+        SOLIDWORKS – Chapas (EAD)
+      </label>
+
+      <label>
+        <input type="checkbox" value="Plastics">
+        SOLIDWORKS Plastics (EAD)
+      </label>
+
+      <label>
+        <input type="checkbox" value="Simulation">
+        SOLIDWORKS Simulation
+      </label>
+    </section>
+
+    <section class="grupo">
+      <h3>Outros Softwares</h3>
+
+      <label>
+        <input type="checkbox" value="Electrical">
+        Electrical Esquemático
+      </label>
+
+      <label>
+        <input type="checkbox" value="Draftsight">
+        DraftSight
+      </label>
+    </section>
+
+    <div class="acoes">
+      <button onclick="gerarPDF()">Gerar PDF</button>
+    </div>
+
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="/javascript/index.js"></script>
 
 </body>
 </html>
