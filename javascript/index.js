@@ -23,6 +23,7 @@ function gerarPDF() {
     doc.addImage(headerBase64, "PNG", 5, 5, 200, 25);
 }
 
+
   function desenharSWlogo() {
   const pageWidth = doc.internal.pageSize.getWidth();
   const pageHeight = doc.internal.pageSize.getHeight();
@@ -58,10 +59,10 @@ function gerarPDF() {
   // =====================================================
   const textos = {
 
-    nivel1: 
-`Capacitação em SOLIDWORKS Nível I EAD
+    nivel1: {
+titulo: "Capacitação em SOLIDWORKS Nível I EAD",
 
-Objetivo: Capacitar o participante a utilizar o SOLIDWORKS para construção de modelos paramétricos de peças e montagens e elaboração de detalhamentos 2D com enfoque nas habilidades e conceitos fundamentais do software.
+corpo: `Objetivo: Capacitar o participante a utilizar o SOLIDWORKS para construção de modelos paramétricos de peças e montagens e elaboração de detalhamentos 2D com enfoque nas habilidades e conceitos fundamentais do software.
 
 Pré-requisitos: Conexão estável com a internet, familiaridade com o sistema operacional Windows e conhecimentos básicos em desenho técnico. (Opcional: uso de um segundo monitor).
 
@@ -228,12 +229,14 @@ SIMULATION XPRESS
 •	Plotagem de deslocamento
 •	Entender fator de segurança
 •	Gerar um relatório"
-`,
+`
+    
+},
 
-    nivel2:
-`Capacitação em SOLIDWORKS Nível II EAD
+    nivel2: {
+titulo: "Capacitação em SOLIDWORKS Nível II EAD",
 
-Objetivo: Capacitar o participante a utilizar o SOLIDWORKS para construção de modelos paramétricos de peças e montagens e com enfoque nas habilidades e conceitos avançados do software.
+corpo: `Objetivo: Capacitar o participante a utilizar o SOLIDWORKS para construção de modelos paramétricos de peças e montagens e com enfoque nas habilidades e conceitos avançados do software.
 
 Pré-requisitos: Conexão estável com a internet, familiaridade com o sistema operacional Windows e conhecimentos básicos em desenho técnico e SOLIDWORKS Nível I. (Opcional: uso de um segundo monitor).
 
@@ -368,11 +371,12 @@ MOTION MANAGER
 •	Salvar animação
 •	Funções adicionais"
 `,
+    },
 
-    nivel3:
-`Capacitação em SOLIDWORKS Nível III EAD
+    nivel3: {
+titulo: "Capacitação em SOLIDWORKS Nível III EAD",
 
-Objetivo: Capacitar o participante a utilizar as principais ferramentas do software SOLIDWORKS para trabalhos utilizando superfícies e criação de moldes com técnicas automáticas e manuais.
+corpo: `Objetivo: Capacitar o participante a utilizar as principais ferramentas do software SOLIDWORKS para trabalhos utilizando superfícies e criação de moldes com técnicas automáticas e manuais.
 
 Pré-requisitos: Conexão estável com a internet, familiaridade com o sistema operacional Windows e conhecimentos básicos em desenho técnico e SOLIDWORKS Nível II. (Opcional: uso de um segundo monitor).
 
@@ -469,11 +473,12 @@ SOLIDWORKS PLASTICS
 •	Malha
 •	Resultados
 `,
+    },
 
-  Draftsight:
-  `Capacitação em DraftSight EAD
+  Draftsight:{
+  titulo:"Capacitação em DraftSight EAD",
 
-Objetivo: Capacitar o participante a utilizar o DRAFTSIGHT para construção de modelos 2D com enfoque nas habilidades e conceitos fundamentais do software.
+corpo: `Objetivo: Capacitar o participante a utilizar o DRAFTSIGHT para construção de modelos 2D com enfoque nas habilidades e conceitos fundamentais do software.
 
 Pré-requisitos: Estar familiarizado com sistema operacional Windows e ter conhecimentos básicos em desenho técnico.
 
@@ -506,9 +511,9 @@ CRIANDO AS PRIMEIRAS GEOMETRIAS
 •	Construir círculos
 •	Construir polígonos regulares
 •	Mover entidades
-•	Copiar entidades 
+•	Copiar entidades
 •	Girar entidades 
-•	Criando Offset de Entidades 
+•	Criando Offset de Entidades
 •	Espelhar entidades
 
 MANIPULANDO OBJETO
@@ -558,6 +563,7 @@ RECURSOS ADICIONAIS
 •	Layer Settings
 
 Para adequar o horário da capacitação às suas necessidades, a SKA oferece diferentes opções de turnos para sua realização. Em função de valores diferenciados, veja a Cláusula Investimento - Serviços."`
+  }
   };
 
   // =====================================================
@@ -565,47 +571,62 @@ Para adequar o horário da capacitação às suas necessidades, a SKA oferece di
   // =====================================================
   // Checkboxes selecionados
  const selecionados = document.querySelectorAll(
-    'input[type="checkbox"]:checked'
-  );
+  'input[type="checkbox"]:checked'
+);
 
-  selecionados.forEach((checkbox, index) => {
-    if (index > 0) doc.addPage();
-    desenharBackgorund();
-    desenharHeaderImagem();
+selecionados.forEach((checkbox, index) => {
+  if (index > 0) doc.addPage();
 
-    doc.setFontSize(11);
-    doc.setTextColor(0, 0, 0);
+  desenharBackgorund();
+  desenharHeaderImagem();
 
-    let y = inicioTextoY;
+  let y = inicioTextoY;
 
-    const texto = textos[checkbox.value];
-    if (!texto) return;
+  const secao = textos[checkbox.value];
+  if (!secao) return;
 
-    const linhas = doc.splitTextToSize(texto, larguraTexto);
+  // =====================
+  // TÍTULO
+  // =====================
+  doc.setFont("helvetica", "bold");
+  doc.setFontSize(13);
+  doc.text(secao.titulo, margemEsquerda, y);
+  y += 8;
 
-    linhas.forEach((linha) => {
-      if (y + alturaLinha > limiteInferior) {
-        if (SW.includes(checkbox.value)) {
-          desenharSWlogo();
-        }
+  // =====================
+  // CORPO
+  // =====================
+  doc.setFont("helvetica", "normal");
+  doc.setFontSize(11);
 
-        doc.addPage();
-        desenharBackgorund();
-        desenharHeaderImagem();
-        y = inicioTextoY;
+  const linhas = doc.splitTextToSize(secao.corpo, larguraTexto);
+
+  linhas.forEach((linha) => {
+    if (y + alturaLinha > limiteInferior) {
+      if (SW.includes(checkbox.value)) {
+        desenharSWlogo();
       }
 
-      doc.text(linha, margemEsquerda, y);
-      y += alturaLinha;
-    });
-
-    if (SW.includes(checkbox.value)) {
-      desenharSWlogo();
+      doc.addPage();
+      desenharBackgorund();
+      desenharHeaderImagem();
+      y = inicioTextoY;
     }
+
+    doc.text(linha, margemEsquerda, y);
+    y += alturaLinha;
   });
 
-  // =============================
-  // SALVAR
-  // =============================
-  doc.save("capacitações_solidworks.pdf");
+  // =====================
+  // LOGO NO RODAPÉ
+  // =====================
+  if (SW.includes(checkbox.value)) {
+    desenharSWlogo();
+  }
+});
+
+// =============================
+// SALVAR
+// =============================
+doc.save("capacitações_solidworks.pdf");
 }
