@@ -6,13 +6,7 @@
   <link rel="stylesheet" href="/css/index.css">
 </head>
 
-<body>
-    <header class="tabs">
-      <button class="tab active" onclick="mostrarAba('capacitações')">Capacitações</button>
-      <button class="tab" onclick="mostrarAba('certificados')">Certificados</button>
-    </header>
-
-<main class="container aba ativa" id="capacitações">
+<body class="app">
 
   <main class="container">
     <h2>Selecione as capacitações</h2>
@@ -52,7 +46,6 @@
           <label><input type="checkbox" value="Electrical_Schematic"> SolidWorks Electrical Esquemático</label>
           <label><input type="checkbox" value="Electrical_3D"> SolidWorks Electrical 3D (EAD)</label>
         </div>
-      </section>
 
         <div class="grupo">
           <h4>Outros CAD</h4>
@@ -73,14 +66,14 @@
         </div>
 
         <div class="grupo">
-          <h4>CAM – Avançado</h4>
+          <h4>CAM - Avançado</h4>
 
           <label><input type="checkbox" value="CAM4_5"> CAM 4 e 5 Eixos</label>
           <label><input type="checkbox" value="CAMHighSpeed"> High Speed Machining</label>
         </div>
 
         <div class="grupo">
-          <h4>CAM – Especializações</h4>
+          <h4>CAM - Especializações</h4>
 
           <label><input type="checkbox" value="CAMTurn"> Torneamento</label>
           <label><input type="checkbox" value="CAMMillTurn"> Mill-Turn</label>
@@ -93,17 +86,7 @@
       <button onclick="gerarPDF()">Gerar PDF</button>
     </div>
 
-  </main>
-
 </main>
-
-<main class="container aba" id="certificados">
-  <h2>Certificados</h2>
-  <p>Aqui entra o conteúdo de certificados.</p>
-
-
-</main>
-
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script src="/javascript/index.js"></script>

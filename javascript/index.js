@@ -1228,20 +1228,3 @@ selecionados.forEach((checkbox, index) => {
 doc.save("capacitações_solidworks.pdf");
 }
 
-function mostrarAba(id) {
-  // esconde todas as abas
-  document.querySelectorAll('.aba').forEach(aba => {
-    aba.classList.remove('ativa');
-  });
-
-  // remove active dos botões
-  document.querySelectorAll('.tab').forEach(tab => {
-    tab.classList.remove('active');
-  });
-
-  // mostra a aba clicada
-  document.getElementById(id).classList.add('ativa');
-
-  // ativa o botão correspondente
-  event.target.classList.add('active');
-}
