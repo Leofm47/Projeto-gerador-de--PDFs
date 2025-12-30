@@ -1,0 +1,93 @@
+:root {
+  --azul-ska: #0e5fa3;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: #f0f0f0;
+  font-family: Arial, sans-serif;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* FORM */
+.formulario {
+  background: white;
+  width: 420px;
+  padding: 24px;
+  border-radius: 8px;
+}
+
+.formulario input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 12px;
+}
+
+.formulario button {
+  width: 100%;
+  padding: 12px;
+  background: var(--azul-ska);
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.opcoes-bg {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+/* CERTIFICADO (OCULTO) */
+#certificado {
+  width: 210mm;
+  height: 297mm;
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: white;
+  overflow: hidden;
+}
+
+/* FUNDO */
+.bg-certificado {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* TEXTO */
+.overlay {
+  position: absolute;
+  top: 450px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  padding: 0 80px;
+}
+
+.texto {
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.nome {
+  font-size: 30px;
+  font-weight: 600;
+  margin: 35px auto;
+}
+
+.curso {
+  font-size: 30px;
+  font-weight: 600;
+  margin: 55px 0;
+}
