@@ -1,10 +1,16 @@
-/* Reset leve */
-* {
-  box-sizing: border-box;
+/* Reset global essencial */
+html, body {
+  margin: 0;
+  padding: 0;
 }
 
 /* Base */
 body.app {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;      /* centraliza vertical */
+  justify-content: center;  /* centraliza horizontal */
+
   font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   color: #1f2933;
 
@@ -12,7 +18,7 @@ body.app {
     linear-gradient(
       150deg,
       rgba(30, 37, 56, 0.74),
-      rgb(14, 28, 68)
+      rgba(14, 28, 68, 0.95)
     ),
     url("/assets/imagem.png");
 
@@ -21,16 +27,18 @@ body.app {
   background-repeat: no-repeat;
 }
 
+
+
 /* Container principal */
 .container {
   max-width: 1000px;
-  margin: 20px auto;
+  width: 100%;
   padding: 15px;
   background: #ffffff;
   border-radius: 16px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
-  background-color: #ffffff;
 }
+
 
 /* Título */
 h2 {
