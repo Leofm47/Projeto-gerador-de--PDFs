@@ -1,3 +1,21 @@
+const botaoPDF = document.getElementById("btnGerarPDF");
+const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+
+function atualizarEstadoBotao() {
+  const algumSelecionado =
+    document.querySelectorAll('input[type="checkbox"]:checked').length > 0;
+
+  botaoPDF.disabled = !algumSelecionado;
+}
+
+checkboxes.forEach(cb => {
+  cb.addEventListener("change", atualizarEstadoBotao);
+});
+
+
+atualizarEstadoBotao();
+
+
 function gerarPDF() {
   const { jsPDF } = window.jspdf;
   const doc = new jsPDF();
@@ -1211,8 +1229,6 @@ selecionados.forEach((checkbox, index) => {
     y += alturaLinha;
   });
 
-
-  // LOGO NO RODAPÉ
   if (SW.includes(checkbox.value)) {
     desenharSWlogo();
   }

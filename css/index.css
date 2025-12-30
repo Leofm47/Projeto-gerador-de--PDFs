@@ -1,15 +1,14 @@
-/* Reset global essencial */
 html, body {
   margin: 0;
   padding: 0;
 }
 
-/* Base */
 body.app {
+  font-size: 17px;
   min-height: 100vh;
   display: flex;
-  align-items: center;      /* centraliza vertical */
-  justify-content: center;  /* centraliza horizontal */
+  align-items: center;     
+  justify-content: center; 
 
   font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   color: #1f2933;
@@ -27,9 +26,6 @@ body.app {
   background-repeat: no-repeat;
 }
 
-
-
-/* Container principal */
 .container {
   max-width: 1000px;
   width: 100%;
@@ -39,22 +35,18 @@ body.app {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
 }
 
-
-/* Título */
 h2 {
   font-size: 24px;
   font-weight: 600;
   margin-bottom: 10px;
 }
 
-/* Grid */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 32px;
 }
 
-/* Colunas (CAD / CAM) */
 .coluna {
   background: #f9fafb;
   border-radius: 12px;
@@ -70,7 +62,6 @@ h2 {
   color: #111827;
 }
 
-/* Grupos */
 .grupo {
   margin-bottom: 24px;
 }
@@ -88,7 +79,6 @@ h2 {
   color: #4b5563;
 }
 
-/* Labels + checkboxes */
 label {
   display: flex;
   align-items: center;
@@ -103,7 +93,6 @@ label:hover {
   background: #eef2ff;
 }
 
-/* Checkbox moderno */
 input[type="checkbox"] {
   width: 16px;
   height: 16px;
@@ -111,21 +100,19 @@ input[type="checkbox"] {
   cursor: pointer;
 }
 
-/* Ações */
 .acoes {
   margin-top: 25px;
   display: flex;
   justify-content: flex-end;
 }
 
-/* Botão */
 .acoes button {
   background: linear-gradient(135deg, #1911b3, #6366f1);
   color: #ffffff;
   border: none;
   padding: 12px 28px;
   border-radius: 10px;
-  font-size: 15px;
+  font-size: 20px;
   font-weight: 600;
   cursor: pointer;
   box-shadow: 0 6px 15px rgba(79, 70, 229, 0.35);
@@ -142,3 +129,9 @@ input[type="checkbox"] {
   transform: translateY(0);
 }
 
+.acoes button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
