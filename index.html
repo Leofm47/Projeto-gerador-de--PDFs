@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Gerador de PDF</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+
+<body class="app">
+
+  <main class="container">
+    <h2>Selecione as capacitações</h2>
+
+    <div class="grid">
+
+      <!-- ================= CAD ================= -->
+      <section class="coluna">
+        <h3>CAD</h3>
+
+        <div class="grupo">
+          <h4>SOLIDWORKS – Níveis</h4>
+
+          <label><input type="checkbox" value="nivel1"> SolidWorks Nível I</label>
+          <label><input type="checkbox" value="nivel2"> SolidWorks Nível II</label>
+          <label><input type="checkbox" value="nivel3"> SolidWorks Nível III</label>
+        </div>
+
+        <div class="grupo">
+          <h4>SOLIDWORKS - Especializações</h4>
+
+          <label><input type="checkbox" value="Chapas"> Chapas (EAD)</label>
+          <label><input type="checkbox" value="Soldagem"> Soldagens (EAD)</label>
+          <label><input type="checkbox" value="Simulation"> Simulation (EAD)</label>
+          <label><input type="checkbox" value="Plastics"> Plastics (EAD)</label>
+          <label><input type="checkbox" value="Visualize"> Visualize (EAD)</label>
+          <label><input type="checkbox" value="DriveWorks"> DriveWorks Xpress (EAD)</label>
+        </div>
+
+        <div class="grupo">
+          <h4>ECAD</h4>
+
+          <label><input type="checkbox" value="Altium_Essentials"> Altium Designer - Essentials</label>
+          <label><input type="checkbox" value="Altium_Advanced"> Altium Designer - Advanced</label>
+          <label><input type="checkbox" value="Electrical_Essentials"> Ares Electrical Essentials</label>
+          <label><input type="checkbox" value="Electrical_Advanced"> Ares Electrical Advanced</label>
+          <label><input type="checkbox" value="Electrical_Schematic"> SolidWorks Electrical Esquemático</label>
+          <label><input type="checkbox" value="Electrical_3D"> SolidWorks Electrical 3D (EAD)</label>
+        </div>
+
+        <div class="grupo">
+          <h4>Outros CAD</h4>
+
+          <label><input type="checkbox" value="Draftsight"> DraftSight</label>
+        </div>
+      </section>
+
+      <!-- ================= CAM ================= -->
+      <section class="coluna">
+        <h3>CAM</h3>
+
+        <div class="grupo">
+          <h4>CAM - EDGECAM</h4>
+
+          <label><input type="checkbox" value="CAM2_"> Capacitação em EDGECAM - Básico EAD</label>
+          <label><input type="checkbox" value="CAM3"> Capacitação EDGECAM - Operaçoes de Torneamento e Fresamento EAD</label>
+        </div>
+
+        <div class="grupo">
+          <h4>CAM - Avançado</h4>
+
+          <label><input type="checkbox" value="CAM4_5"> CAM 4 e 5 Eixos</label>
+          <label><input type="checkbox" value="CAMHighSpeed"> High Speed Machining</label>
+        </div>
+
+        <div class="grupo">
+          <h4>CAM - Especializações</h4>
+
+          <label><input type="checkbox" value="CAMTurn"> Torneamento</label>
+          <label><input type="checkbox" value="CAMMillTurn"> Mill-Turn</label>
+        </div>
+      </section>
+
+    </div>
+
+    <div class="acoes">
+  <button id="btnGerarPDF" onclick="gerarPDF()" disabled>
+    Gerar PDF
+  </button>
+</div>
+
+
+
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="index.js"></script>
+
+</body>
+</html>
