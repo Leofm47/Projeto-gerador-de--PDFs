@@ -75,7 +75,7 @@ Pré-requisitos: Conexão estável com a internet, familiaridade com o sistema o
 Carga horária: 40 horas
 
 Conteúdo Programático:
-COMPREENDENDO O 3D
+COMPREENDENDO O 3D:
 •	Compreensão de esboço
 •	Analogia para obtenção de sólido 3D
 •	Discussão de métodos de modelamento
