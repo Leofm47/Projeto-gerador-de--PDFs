@@ -19,7 +19,7 @@ body.app {
       rgba(30, 37, 56, 0.74),
       rgba(14, 28, 68, 0.95)
     ),
-    url("/assets/imagem.png");
+    url("assets/imagem.png");
 
   background-size: cover;
   background-position: center;

@@ -1234,6 +1234,6 @@ selecionados.forEach((checkbox, index) => {
   }
 });
 
-doc.save("capacitações_solidworks.pdf");
+doc.save("conteúdo_programático.pdf");
 }
 
